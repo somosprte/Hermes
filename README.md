@@ -7,7 +7,7 @@ The Python version should be >= 3.4. Anaconda `[1]` or Miniconda `[2]` (python d
 To install required packages do:
 
 ```sh
-python -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Start API
