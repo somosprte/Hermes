@@ -1,5 +1,5 @@
 # Hermes
-
+![alt tag](https://raw.githubusercontent.com/somosprte/projectname/Hermes/img.png)
 ## Install
 
 The Python version should be >= 3.4. Anaconda `[1]` or Miniconda `[2]` (python distribution offered by Continuum) can be used.
