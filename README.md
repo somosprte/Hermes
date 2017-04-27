@@ -1,5 +1,12 @@
 # Hermes
 ![alt tag](https://github.com/somosprte/Hermes/blob/master/logo-hermes-final.png)
+
+The Hermes project uses a zigbee network, hence it works with zigbee protocol, and this requires interacting with low-level hardware.
+
+The idea of using python is because of performance, simplicity and ease of dealing with hardware.
+
+In the initial design, we will have a Raspberry Pi, which would function as a server, connected to an xbee card in the USB port, the interaction via serial, and the idea is that Raspberry Pi, through its Wi-Fi network, provides a restfull service to that when requested the status of an X port dialogically type server/port1, there is the hexadecimal communication with xbee, so that it searches for this information.
+
 ## Install
 
 The Python version should be >= 3.4. Anaconda `[1]` or Miniconda `[2]` (python distribution offered by Continuum) can be used.
