@@ -7,15 +7,50 @@ The idea of using python is because of performance, simplicity and ease of deali
 
 In the initial design, we will have a Raspberry Pi, which would function as a server, connected to an xbee card in the USB port, the interaction via serial, and the idea is that Raspberry Pi, through its Wi-Fi network, provides a restfull service to that when requested the status of an X port dialogically type server/port1, there is the hexadecimal communication with xbee, so that it searches for this information.
 
-## Install
+## Development
 
-The Python version should be >= 3.4. Anaconda `[1]` or Miniconda `[2]` (python distribution offered by Continuum) can be used.
+Before start, on GitHub, fork Hermes project (https://github.com/somosprte/Hermes)
 
-To install required packages do:
+So, on the root folder when the project should be cloned, type:
 
 ```sh
-pip install -r requirements.txt
+git clone https://github.com/<your-user-id>/Hermes.git
+
 ```
+
+### Environment
+
+If you are using conda, before the code bellow, enter into the Hermes folder. Next, type the following commands:
+
+```sh
+conda create --name hermes python=3.4
+
+source activate hermes
+
+conda install --file requirements.txt
+```
+
+The Python interpret installed should be version 3.4, because this is the version used by Raspberry Pi 2 (armv6l), at this moment.
+
+If you are using virtualenv (remember to use Python 3.4), on the Hermes folder, type:
+
+```sh
+
+virtualenv .
+
+source bin/activate
+
+pip install -r requirements.txt
+
+```
+
+To run the project, type:
+
+```sh
+python api.py
+
+```
+
 
 ## Start API
 
