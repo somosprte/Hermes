@@ -1,10 +1,9 @@
-from flask import Flask, request
+from flask import Flask, request, abort
 from flask_restful import Resource, Api
 
 import click
 
 #pyserial
-import serial
 import serial.tools.list_ports
 
 import json
@@ -34,20 +33,28 @@ class SimpleRest(Resource):
         todos[todo_id] = request.form['data']
         return {todo_id: todos[todo_id]}
 """
-    Classe responsavel, por retornar as portas seriais, conectadas no dispositivo.
+    Class that returns the ports connected to the device.
 """
 class serialDevices(Resource):
     def get(self,nome=None):
-        print (nome)
-        #Quando não for passado o nome, retorna todas as portas disponiveis
+        #When the name is not passed in the url, it returns all the available ports.
         if not nome:
             '''
-                Retorno da lista: ('dispositivo','nome','descricao')
+                Returns list in format: ('device', 'name', description).
             '''
             devices = serial.tools.list_ports.comports()
-        
-        res = {'devices': devices}
-        #return json.dumps(res) para retornar em string
+        else:
+            try:
+                devices = next(serial.tools.list_ports.grep(nome))
+            except:
+                #When you can not find devices
+                abort(404)
+        if len(devices)== 0:
+            #When you can not find devices
+            abort(404)
+        else:
+            res = {'devices': devices}
+        #Use return json.dumps(res) to return in string
         return res
 
 
