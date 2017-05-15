@@ -3,7 +3,7 @@ layout: default
 ---
 ## [](#header-1)Sobre o Projeto
 
-O Projeto Hermes nasceu durante uma [hachaton](https://www.youtube.com/watch?v=99vt-H8GznU) realizada pela John Deere na Campus Party 2017.
+O Projeto Hermes nasceu durante uma [hackaton](https://www.youtube.com/watch?v=99vt-H8GznU) realizada pela John Deere na Campus Party 2017.
 
 A idéia é bem simples: Existem uma infinidade de sensores e de recursos de automação para o Campo, mas como eles se comunicam? Não existe uma rede para telemetria no Campo!
 
