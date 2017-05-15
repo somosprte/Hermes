@@ -3,28 +3,23 @@ layout: default
 ---
 ## [](#header-1)Sobre o Projeto
 
-O Projeto Hermes nasceu durante uma [hachaton](https://www.youtube.com/watch?v=99vt-H8GznU) realizada pela John Deere na Campus Party
+O Projeto Hermes nasceu durante uma [hachaton](https://www.youtube.com/watch?v=99vt-H8GznU) realizada pela John Deere na Campus Party 2017.
 
-[See more](https://github.com/somosprte/Hermes).
+A idéia é bem simples: Existem uma infinidade de sensores e de recursos de automação para o Campo, mas como eles se comunicam? Não existe uma rede para telemetria no Campo!
 
-## [](#header-2)Sobre o Projeto
+Na verdade não existia, pois o Projeto Hermes permitirá a criação de uma rede de telemetria, de baixo custo, segura e de longo alcance.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+[Acreditamos nessas palavras!!!](https://www.youtube.com/watch?v=99vt-H8GznU&feature=youtu.be&t=306)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+O Projeto Hermes permitirá ao Campo transformar dados em informação!
 
-## [](#header-3)Hackathon
+## [](#header-2)Na Mídia
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+Apresentamos o Projeto Hermes na Expopec 2017 e ficamos muito gratos pelo sucesso que a idéia e o ideal do projeto alcançaram, fomos matéria do Programa TVAGRO.
 
+[Assista o vídeo para entender um pouco mais sobre o Projeto Hermes.](https://www.youtube.com/watch?v=P0a2HJecLoc)
 
-### Logo
+### Esteja conectado ao Projeto Hermes
 
-![](assets/img/logo-hermes-final.png)
-
-### Redes Sociais
-
-[Telegram](https://github.com/somosprte/Hermes)
-[Facebook](https://github.com/somosprte/Hermes)
-[Twitter](https://github.com/somosprte/Hermes)
-[Instagram](https://github.com/somosprte/Hermes)
+[Telegram](https://t.me/projetohermes)
+[GitHub](https://github.com/somosprte/Hermes)
