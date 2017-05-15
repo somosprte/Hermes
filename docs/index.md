@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-# [](#header-1)Projeto Hermes
+## [](#header-1)About the Project
 
 The Hermes project uses a zigbee network, hence it works with zigbee protocol, and this requires interacting with low-level hardware.
 
@@ -11,7 +11,7 @@ In the initial design, we will have a Raspberry Pi, which would function as a se
 
 [See more](https://github.com/somosprte/Hermes).
 
-## [](#header-2)Na Mídia
+## [](#header-2)Sobre o Projeto
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
 
@@ -32,7 +32,3 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 [Facebook](https://github.com/somosprte/Hermes)
 [Twitter](https://github.com/somosprte/Hermes)
 [Instagram](https://github.com/somosprte/Hermes)
-
-
-
-
