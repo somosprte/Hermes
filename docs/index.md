@@ -1,13 +1,9 @@
 ---
 layout: default
 ---
-## [](#header-1)About the Project
+## [](#header-1)Sobre o Projeto
 
-The Hermes project uses a zigbee network, hence it works with zigbee protocol, and this requires interacting with low-level hardware.
-
-The idea of using python is because of performance, simplicity and ease of dealing with hardware.
-
-In the initial design, we will have a Raspberry Pi, which would function as a server, connected to an xbee card in the USB port, the interaction via serial, and the idea is that Raspberry Pi, through its Wi-Fi network, provides a restfull service to that when requested the status of an X port dialogically type server/port1, there is the hexadecimal communication with xbee, so that it searches for this information.
+O Projeto Hermes nasceu durante uma [hachaton](https://www.youtube.com/watch?v=99vt-H8GznU) realizada pela John Deere na Campus Party
 
 [See more](https://github.com/somosprte/Hermes).
 
