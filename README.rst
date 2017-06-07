@@ -1,5 +1,28 @@
+======
+Hermes
+======
+
+
+.. image:: https://img.shields.io/pypi/v/Hermes.svg
+        :target: https://pypi.python.org/pypi/Hermes
+
+.. image:: https://img.shields.io/travis/somosprte/Hermes.svg
+        :target: https://travis-ci.org/somosprte/Hermes
+
+.. image:: https://readthedocs.org/projects/Hermes/badge/?version=latest
+        :target: https://Hermes.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+The Hermes project uses a zigbee network, hence it works with zigbee protocol, and this requires interacting with low-level hardware.
+
+
+* Free software: MIT license
+* Documentation: https://hermes.readthedocs.io.
+
+
 # Hermes
-![alt tag](https://github.com/somosprte/Hermes/blob/master/logo-hermes-final.png)
+![alt tag](https://github.com/somosprte/Hermes/blob/master/img/logo-hermes-final.png)
 
 The Hermes project uses a zigbee network, hence it works with zigbee protocol, and this requires interacting with low-level hardware.
 
@@ -47,7 +70,7 @@ pip install -r requirements.txt
 To run the project, type:
 
 ```sh
-python api.py
+python hermes.py
 
 ```
 
@@ -58,7 +81,7 @@ To start the api do:
 
 
 ```sh
-python api.py
+python hermes.py
 ```
 
 And to test it:

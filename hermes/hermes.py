@@ -3,10 +3,8 @@ from flask_restful import Resource, Api
 
 import click
 
-#pyserial
 import serial.tools.list_ports
-
-import json
+# import json
 
 app = Flask(__name__)
 api = Api(app)
@@ -32,35 +30,40 @@ class SimpleRest(Resource):
     def put(self, todo_id):
         todos[todo_id] = request.form['data']
         return {todo_id: todos[todo_id]}
-"""
-    Class that returns the ports connected to the device.
-"""
+
+
 class serialDevices(Resource):
-    def get(self,nome=None):
-        #When the name is not passed in the url, it returns all the available ports.
+    """
+    Class that returns the ports connected to the device.
+
+    """
+    def get(self, nome=None):
+        # When the name is not passed in the url, it returns all the available
+        # ports.
         if not nome:
-            '''
-                Returns list in format: ('device', 'name', description).
-            '''
+            # Returns list in format: ('device', 'name', description).
             devices = serial.tools.list_ports.comports()
         else:
             try:
                 devices = next(serial.tools.list_ports.grep(nome))
             except:
-                #When you can not find devices
+                # When you can not find devices
                 abort(404)
-        if len(devices)== 0:
-            #When you can not find devices
+        if len(devices) == 0:
+            # When you can not find devices
             abort(404)
         else:
             res = {'devices': devices}
-        #Use return json.dumps(res) to return in string
+        # Use return json.dumps(res) to return in string
         return res
 
 
-
 api.add_resource(SimpleRest, '/<string:todo_id>')
-api.add_resource(serialDevices, '/serialDevices','/serialDevices/<string:nome>')
+api.add_resource(
+    serialDevices,
+    '/serialDevices',
+    '/serialDevices/<string:nome>'
+)
 
 if __name__ == '__main__':
     startup()
