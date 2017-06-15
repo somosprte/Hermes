@@ -65,15 +65,15 @@ coverage: ## check code coverage quickly with the default Python
 		$(BROWSER) htmlcov/index.html
 
 docs: ## generate Sphinx HTML documentation, including API docs
-	rm -f docs/hermes.rst
-	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ hermes
-	$(MAKE) -C docs clean
-	$(MAKE) -C docs html
-	$(BROWSER) docs/_build/html/index.html
+	rm -f readthedocs/hermes.rst
+	rm -f readthedocs/modules.rst
+	sphinx-apidoc -o readthedocs/ hermes
+	$(MAKE) -C readthedocs clean
+	$(MAKE) -C readthedocs html
+	$(BROWSER) readthedocs/_build/html/index.html
 
 servedocs: docs ## compile the docs watching for changes
-	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
+	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C readthedocs html' -R -D .
 
 release: clean ## package and upload a release
 	python setup.py sdist upload
