@@ -11,10 +11,6 @@ import serial
 import sqlite3
 # import json
 
-
-
-
-
 class act():
 	"""
 	connection to actors
@@ -23,7 +19,7 @@ class act():
 		print(code)
 
 	def get(code=None):
-		return 'test'
+		print('Test code: ' + code)
 
 
 
@@ -90,7 +86,7 @@ class serialDevices(Resource):
 		return res
 	"""
 	def get(self, nome=None):
-
+		print(act.get(nome))
 		return nome
 
 	def put(self, nome):
