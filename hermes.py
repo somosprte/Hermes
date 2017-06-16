@@ -19,7 +19,22 @@ class act():
 		print(code)
 
 	def get(code=None):
-		print('Test code: ' + code)
+		if not code:
+			# Returns list in format: ('device', 'name', description).
+			devices = serial.tools.list_ports.comports()
+		else:
+			try:
+			   devices = next(serial.tools.list_ports.grep(code))
+			except:
+				# When you can not find devices
+				abort(404)
+		if len(devices) == 0:
+			# When you can not find devices
+			abort(404)
+		else:
+			res = {'devices': devices}
+		# Use return json.dumps(res) to return in string
+		return res
 
 
 
@@ -63,30 +78,9 @@ class serialDevices(Resource):
 	"""
 	Class that returns the ports connected to the device.
 
-
-
+		"""
 	def get(self, nome=None):
-		# When the name is not passed in the url, it returns all the available
-		# ports.
-		if not nome:
-			# Returns list in format: ('device', 'name', description).
-			devices = serial.tools.list_ports.comports()
-		else:
-			try:
-			   devices = next(serial.tools.list_ports.grep(nome))
-			except:
-				# When you can not find devices
-				abort(404)
-		if len(devices) == 0:
-			# When you can not find devices
-			abort(404)
-		else:
-			res = {'devices': devices}
-		# Use return json.dumps(res) to return in string
-		return res
-	"""
-	def get(self, nome=None):
-		print(act.get(nome))
+		resp = act.get(nome)
 		return nome
 
 	def put(self, nome):
