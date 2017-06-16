@@ -1,9 +1,17 @@
 # NOT READY
-FROM : python:onbuild
+FROM python:onbuild
 
-apt install sqlite3
+RUN apt-get  update -y &&  apt-get install -y --no-install-recommends sqlite3 libsqlite3-dev && rm -rf /var/lib/apt/lists/*
 
-pip install -r requirements.txt
+WORKDIR /usr/share/hermes
 
-COPY . .
+COPY requirements.txt .
 
+RUN pip install -r requirements.txt
+
+COPY . . 
+
+
+# EXPOSE port? 
+
+#CMD[""]
