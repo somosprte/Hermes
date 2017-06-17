@@ -1,3 +1,5 @@
+#!/home/samuel/Documentos/HermesProj/venv/bin/python3
+
 from flask import Flask, request, abort, g
 from flask_restful import Resource, Api
 
@@ -13,7 +15,7 @@ import sqlite3
 # import json
 
 class act():
-	lock = RLock()
+	lock = Lock()
 
 	"""
 	connection to actors
@@ -77,21 +79,37 @@ class act():
 		# Use return json.dumps(res) to return in string
 		return res
 	"""
+	def return_message(data):
+		print(data)
+
 	def get(code=None):
 		
 		return "Result"
-
-
+	
+	def parse(**kwargs):
+		art.lock.accquire()
+		try:
+			ser = serial.Serial('/dev/ttyUSB0', 9600)
+			bee = xbee.ZigBee(ser)	
+			act.bee.remote_tr(**kwargs)
+			act.bee.wait_read_frame()
+			ser.close()
+		except:
+			print('connection falied')
+		finally:
+			lock.release()  
 	def do(code, cmd):
 		args = cmd.split(' ')
 		args.pop(0)
 		print(args)
 		cmd = args.pop(0)
 		if args.__len__() is 1 :
-			act.bee.send(('at', command=act.commands.get(cmd), parameter=act.parameters.get(args.pop(0))))
+			act.parse( **{'command':act.commands.get(cmd), 'parameter':act.parameters.get(args.pop(0))})
+		#if args.__len__() is 1 :
+		#	act.bee.remote( command=act.commands.get(cmd), parameter=act.parameters.get(args.pop(0)))
 		else:
 			print('PRINT ' + cmd)
-			print(act.bee.send('at',command=act.commands.get(cmd)))
+			print(act.bee.remote_at(command=act.commands.get(cmd)))
 			#print(act.bee.send('at',command=act.commands.get(cmd), parameter=act.parameters.get(args.pop(0)), addr_long=act.parameters.get(args.pop(0))))
 			#print(act.bee.send('at',command=act.commands.get(cmd), parameter=act.parameters.get(args.pop(0)), addr_long=act.  code  ))
 		
