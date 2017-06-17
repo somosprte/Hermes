@@ -44,12 +44,6 @@ class act():
 	#	act.bee.
 	#COMMAND : sensor
 
-	def parse(**kwargs):
-		lock.accquire()
-		bee = xbee.ZigBee(serial.Serial('/dev/ttyUSB0', 9600))
-		bee.send(**kwargs)
-		lock.release()
-
 	def add(code, info):
 		info=info.split(' ')
 		name = code
@@ -94,7 +88,7 @@ class act():
 		print(args)
 		cmd = args.pop(0)
 		if args.__len__() is 1 :
-			print(act.bee.send('at', command=act.commands.get(cmd), parameter=act.parameters.get(args.pop(0))))
+			act.bee.send(('at', command=act.commands.get(cmd), parameter=act.parameters.get(args.pop(0))))
 		else:
 			print('PRINT ' + cmd)
 			print(act.bee.send('at',command=act.commands.get(cmd)))
