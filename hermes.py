@@ -8,7 +8,7 @@ import click
 
 import serial.tools.list_ports
 
-from threading import RLock, Thread
+from threading import Lock, Thread
 import xbee
 import serial
 import sqlite3
@@ -16,15 +16,21 @@ import sqlite3
 
 class act():
 	lock = Lock()
-
+	lock.acquire()
+	lock.release()
 	"""
 	connection to actors
 	"""
+	adr={
+		'SAMUEL':b'\x00\x13\xA2\x00\x40\x8C\x70\x27',
+		'RIVA':b'\x00\x13\xA2\x00\x40\x8C\x70\x1E'
+	}
 	commands = {
-		'P0':b'P0',
-		'AT':b'AT',
-		'NT':b'NT',
-		'ATND':b'ATND'
+		'COM':b'P0',
+		'LED2':b'P2', #LED 2
+		'LEDA':b'D5', #LED ASSOC AZUL 
+		'LED4':b'D7', #LED LED 4
+		'LED7':b'P1' #LED 7
 	}
 
 	parameters={
@@ -32,20 +38,12 @@ class act():
 		'OFF':b'\x04'
 	}
 	
-	network={}
-	#ser = serial.Serial('/dev/ttyUSB0', 9600)
 	try:
 		bee = xbee.ZigBee(serial.Serial('/dev/ttyUSB0', 9600))
-		#network = 		
-		
 	except:
 		print("Falha na conecao com controlador")
-		pass
+		exit
 	
-	#def __innit__(self):
-	#	act.bee.
-	#COMMAND : sensor
-
 	def add(code, info):
 		info=info.split(' ')
 		name = code
@@ -57,28 +55,6 @@ class act():
 			act.bee.send('at', b'AT')
 		#while True: 
 
-	"""
-	def find(code=None):
-		#print("inside act pip")
-		if not code:
-			# Returns list in format: ('device', 'name', description).
-			print("inside not code")
-			devices = serial.tools.list_ports.comports()
-		else:
-			print('inside else')
-			try:
-			   devices = next(serial.tools.list_ports.grep(code))
-			except:
-				# When you can not find devices
-				abort(404)
-		if len(devices) == 0:
-			# When you can not find devices
-			abort(404)
-		else:
-			res = {'devices': devices}
-		# Use return json.dumps(res) to return in string
-		return res
-	"""
 	def return_message(data):
 		print(data)
 
@@ -86,10 +62,11 @@ class act():
 		
 		return "Result"
 	
+	'''
 	def parse(**kwargs):
-		art.lock.accquire()
+		act.lock.acquire()
 		try:
-			ser = serial.Serial('/dev/ttyUSB0', 9600)
+			print(ser = serial.Serial('/dev/ttyUSB0', 9600))
 			bee = xbee.ZigBee(ser)	
 			act.bee.remote_tr(**kwargs)
 			act.bee.wait_read_frame()
@@ -97,21 +74,23 @@ class act():
 		except:
 			print('connection falied')
 		finally:
-			lock.release()  
+			act.lock.release()  
+	'''	
+
 	def do(code, cmd):
 		args = cmd.split(' ')
 		args.pop(0)
-		print(args)
+		print(code)
 		cmd = args.pop(0)
-		if args.__len__() is 1 :
-			act.parse( **{'command':act.commands.get(cmd), 'parameter':act.parameters.get(args.pop(0))})
+		print(code)
+		if code == 'BASE':
+			act.bee.remote_at( command=act.commands.get(cmd), parameter=act.parameters.get(args.pop(0)))
 		#if args.__len__() is 1 :
-		#	act.bee.remote( command=act.commands.get(cmd), parameter=act.parameters.get(args.pop(0)))
+		#	act.parse( **{'command':act.commands.get(cmd), 'parameter':act.parameters.get(args.pop(0))})
+		elif args.__len__() is 1 :
+			act.bee.remote_at( command=act.commands.get(cmd), parameter=act.parameters.get(args.pop(0)), dest_addr_long=act.adr.get(code) )
 		else:
-			print('PRINT ' + cmd)
-			print(act.bee.remote_at(command=act.commands.get(cmd)))
-			#print(act.bee.send('at',command=act.commands.get(cmd), parameter=act.parameters.get(args.pop(0)), addr_long=act.parameters.get(args.pop(0))))
-			#print(act.bee.send('at',command=act.commands.get(cmd), parameter=act.parameters.get(args.pop(0)), addr_long=act.  code  ))
+			return "Command error. Possible combinations: Name, COMMAND, PORT, VALUE, and/or ADDRESS"
 		
 
 DATABASE = 'database.sqlite'
@@ -164,8 +143,7 @@ class serialDevices(Resource):
 	
 	def put(self, code):
 		comm = request.form['data']
-		print(type(comm))
-		print("Executing " + comm + "in" + code) 
+		print("Executing " + comm + " in " + code) 
 		if comm.startswith("ADD") is True:
 			return act.add(code,comm)
 		
@@ -180,7 +158,7 @@ class serialDevices(Resource):
 		return resp
 
 #api.add_resource(SimpleRest, '/<string:todo_id>')
-api.add_resource(serialDevices,'/serialDevices','/serialDevices/<string:code>')
+api.add_resource(serialDevices,'/hermes','/hermes/<string:code>')
 
 if __name__ == '__main__':
 	startup()
