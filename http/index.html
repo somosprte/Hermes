@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Principal</title>
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta charset="utf-8">
+</head>
+<body>
+
+
+	<div class="parallax-container">
+		<div class="parallax"><img src="img/background.jpg">
+		</div>
+		<div class="row">
+			<div class="col s12 m6 offset-m3">
+				<div class="card white loginform">
+					<div class="card-content black-text">
+						<span class="card-title">Controle Remoto</span>
+						<div class="row">
+							<div class="input-field col s12">
+								<select id="select">
+									<option value="SAMUEL">Samuel Device</option>
+									<option value="RIVA">Riva Device</option>
+									<option value="BASE">BASE Device</option>
+								</select>
+								<label>Selecione o Dispositivo</label>
+							</div>
+							<div class="switch">
+								<label>LED2</label>
+								<label>
+									Desliga
+									<input type="checkbox" id="LED2" class="chk">
+									<span class="lever"></span>
+									Liga
+								</label>
+							</div>
+							<div class="switch">
+								<label>LEDA</label>
+								<label>
+									Desliga
+									<input type="checkbox" id="LEDA" class="chk">
+									<span class="lever"></span>
+									Liga
+								</label>
+							</div>
+							<div class="switch">
+								<label>LED4</label>
+								<label>
+									Desliga
+									<input type="checkbox" id="LED4" class="chk">
+									<span class="lever"></span>
+									Liga
+								</label>
+							</div>
+							<div class="switch">
+								<label>LED7</label>
+								<label>
+									Desliga
+									<input type="checkbox" id="LED7" class="chk">
+									<span class="lever"></span>
+									Liga
+								</label>
+							</div>
+							<div class="switch">
+								<label>COM</label>
+								<label>
+									Desliga
+									<input type="checkbox" id="COM" class="chk" disabled>
+									<span class="lever"></span>
+									Liga
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/init.js"></script>
+</body>
+</html>

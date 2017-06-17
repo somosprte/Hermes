@@ -1,0 +1,17 @@
+body{
+	background-image: url('../img/background.jpg');
+}
+
+
+.corprincipal{
+	background-color: #AEE239;
+}
+
+
+.loginform{
+	margin-top: 25vh;
+	opacity: 0.85;
+}
+.dashboardform{
+	opacity: 0.85;
+}
