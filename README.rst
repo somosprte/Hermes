@@ -92,18 +92,13 @@ And to test it:
 
 .. code-block:: bash
 
-    $ curl http://localhost:5000/todo1 -d "data=Remember the milk" -X PUT
-    {"todo1": "Remember the milk"}
+   
+    curl http://endereco_ip:5000/hermes/BASE -d "data=DO COM OFF" -X POST
+    ### Ordena o equipamento "BASE" a "DO" (fazer) a porta "COM" entrar em estado "OFF"
     
-    $ curl http://localhost:5000/todo1
-    {"todo1": "Remember the milk"}
+    curl http://endereco_ip:5000/hermes/RIVA -d "data=DO LED2 ON" -X POST
+    ### Ordena o equipamento "RIVA" a "DO" (fazer) a porta "LED2" entrar em estado "ON"
     
-    $ curl http://localhost:5000/todo2 -d "data=Change my brakepads" -X PUT
-    {"todo2": "Change my brakepads"}
-    
-    $ curl http://localhost:5000/todo2
-    {"todo2": "Change my brakepads"}
-
 
 (resource: `[3]`)
 
